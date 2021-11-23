@@ -1,0 +1,48 @@
+/* CSS RESETS */
+*, 
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    font-size: 100%;
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+
+/* GLOBAL VARIABLES */
+body {
+    /* Cores */
+    --cor-fundo-escuro: #01091D;
+    --cor-fundo-escuro-alternativo: #121B2E;
+    --cor-fundo-claro: #F0F0F0;
+    --cor-texto-placeholder: #7C7777;
+    --cor-texto-principal: #000000;
+    --cor-texto-claro: #FFFFFF;
+    --cor-texto-alerta: #F11010;
+    --cor-texto-destacado: #EBCB26;
+    --cor-texto-destacado-alternativo: #BD8A08;
+
+    /* Tamanho compoentes */
+    --tamanho-header: 6.75rem;
+    --tamanho-subheader: 3.375rem;
+    --tamanho-footer: 6.75rem;
+    --tamanho-subfooter: 10.125rem;
+    
+    /* Tamanho fontes */
+    --tamanho-fonte-header: 1.375rem;
+    --tamanho-fonte-footer: 1.125rem;
+    --tamanho-fonte-footer-alternativo: 1.375rem;
+    --tamanho-fonte-titulos: 2.5rem;
+    --tamanho-fonte-subtitulos: 2rem;
+    --tamanho-fonte-forms: 1.375rem;
+    --tamanho-fonte-buttons: 1.375rem;
+
+    /* Fontes */
+    --fonte-principal: 'Montserrat', sans-serif;
+}
