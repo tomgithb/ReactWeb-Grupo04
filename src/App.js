@@ -1,6 +1,17 @@
+import React from "react";
+import Formulario from "./components/Formulario";
+//importe do global css 
+import "./global.css";
+
 function App() {
   return (
-    <h1>Alguma coisa</h1>
+    <>
+
+    <h1>Login</h1>
+
+    <Formulario/>
+    
+    </>
   );
 }
 
