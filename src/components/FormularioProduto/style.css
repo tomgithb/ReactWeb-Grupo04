@@ -1,0 +1,58 @@
+body{
+  background-color: var(--cor-fundo-cinza);
+}
+
+.CadastroProduto{
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: 50%;
+  gap: 0rem;
+  font-family: var(--fonte-principal);
+
+}
+
+/* .CadastroProduto div{
+  width: 50%;
+
+}
+.div-cheio{
+  width: 100%;
+}
+
+.div-meio{
+  width: 50%;
+}
+ */
+
+
+.CadastroProduto label{
+  text-align: left;
+  display: flex;
+  white-space: nowrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.2rem;
+
+}
+
+.CadastroProduto input, select{
+  font-size: var(--tamanho-fonte-forms);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--cor-caixa-texto);
+
+}
+
+
+
+#botao{
+  display: flex;
+  justify-content: center;
+  margin-top: 4%;
+  padding: 0.2rem 2rem;
+  background-color: var(--cor-fundo-escuro);
+  color: var(--cor-texto-claro);
+  font-size: var(--tamanho-fonte-buttons);
+}
