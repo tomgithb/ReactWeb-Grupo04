@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useFormik } from 'formik';
+import api from "../../service/api";
 
 
 import "./style.css"
 
+
+/* function cadastrarProduto() {
+  api
+    .post(`api/v1/produtos`, {
+      auth: {
+        username: 'wellington',
+        password: 'batatafrita'
+      },
+      //O que vai ser passado na request, tipo dados e headers
+    })
+    .then((response) => {
+      if (response.status === 201) {
+        //O que vai acontecer se der tudo certo
+      }
+    })
+    .catch((error) => {
+      // O que vai se der tudo errado
+    });
+} */
+
 /*
 *  VALIDAÇÃO DE CAMPOS DO FORMULARIO DE CADASTRO DE PRODUTO
 *
-* Falta verificar corretamente a data de fabricação e o tamanho minimo e maximo das strings
-* O campo categoria precisa estar relacionada com as categorias
+* Enviar dados para API
 */
 
 const validate = values => {
@@ -41,18 +61,26 @@ const validate = values => {
     errors.garantia = "A garantia não pode ter valor negativo";
   }
 
-  var dataAtual = new Date()
+
+  var dataAtual = new Date();
+  var data = new Date(values.fabricacao);
+
+  /*   console.log(dataAtual);
+    console.log(data);
+   */
   if (!values.fabricacao) {
     errors.fabricacao = 'A data não pode ficar em branco ou ser uma data futura.';
 
-  } else if (values.fabricacao > dataAtual) {
+  } else if (data > dataAtual) {
     errors.fabricacao = "Data inválida, Fabricação não pode estar no futuro!";
 
   }
   if (!values.preco) {
     errors.preco = 'O preço não pode ficar em branco.';
   } else if (values.preco < 0) {
-    errors.preco = "O preço não pode ter valor negativo";
+    errors.preco = "O preço não pode ter valor negativo.";
+  } else if (values.preco > 99999.99) {
+    errors.preco = "O preço não pode ser tão alto.";
   }
 
   return errors;
@@ -65,6 +93,24 @@ const validate = values => {
 *  FUNÇÃO DO FORMULARIO DE CADASTRO DE PRODUTO
 */
 function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoque, setEstoque, fabricacao, setFabricacao, garantia, setGarantia, preco, setPreco, categoria, setCategoria, salvarRegistro }) {
+
+
+  const [categorias, setCategorias] = useState([]);
+
+  useEffect(() => {
+    api
+      .get(`api/v1/categorias`)
+      .then((response) => {
+        if (response.status === 200) {
+          setCategorias(response.data);
+        }
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+
+  }, []);
+
 
   const formik = useFormik({
     initialValues: {
@@ -172,13 +218,24 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
             {formik.touched.preco && formik.errors.preco ? <div class="error">{formik.errors.preco}</div> : null}
           </div>
         </div>
+
+
+
         <label>Categoria <spam id="alerta">*</spam></label>
         <select
           nome="categoria"
           type="dropdown"
         >
-          <option value="teste">Opção teste 1</option>
-          <option value="teste">Opção teste 2</option>
+          <option name="test">  </option>
+          {categorias.length === 0
+            ? ""
+            : categorias
+              .map((categoria) => {
+                return (
+                  <option value={categoria.id}>{categoria.nome}</option>
+                );
+              })}
+
         </select>
 
 
