@@ -12,6 +12,15 @@ body{
 
 }
 
+#alerta{
+  color: var(--cor-texto-alerta);
+}
+
+.error {
+  color: var(--cor-texto-alerta);
+  font-style: italic;
+}
+
 /* .CadastroProduto div{
   width: 50%;
 
@@ -20,7 +29,9 @@ body{
   width: 100%;
 }
 
-.div-meio{
+
+*** SE NÃO DER CERTO, APAGAR DIVS DO INDEX
+#div-meio,#estoque,#garantia,#preco,#fabricacao{
   width: 50%;
 }
  */
@@ -40,7 +51,8 @@ body{
   font-size: var(--tamanho-fonte-forms);
   border: none;
   padding: 0.5rem;
-  border-radius: 5px;
+  border-radius: 0,3rem;
+  width: 100%;
   background-color: var(--cor-caixa-texto);
 
 }
@@ -51,7 +63,7 @@ body{
   display: flex;
   justify-content: center;
   margin-top: 4%;
-  padding: 0.2rem 2rem;
+  padding: 0,2rem 2rem;
   background-color: var(--cor-fundo-escuro);
   color: var(--cor-texto-claro);
   font-size: var(--tamanho-fonte-buttons);
