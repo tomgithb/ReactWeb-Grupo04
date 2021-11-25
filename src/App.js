@@ -1,16 +1,12 @@
 import React from "react";
-import Formulario from "./components/Formulario";
+import FormularioLogin from "./components/FormularioLogin";
 //importe do global css 
 import "./global.css";
 
 function App() {
   return (
     <>
-
-    <h1>Login</h1>
-
-    <Formulario/>
-    
+    <FormularioLogin/>
     </>
   );
 }
