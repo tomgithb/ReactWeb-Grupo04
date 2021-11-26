@@ -1,5 +1,4 @@
-//Formulario Richard com formik //
-//Clique para sua conta! como link.
+//Clique para sua conta! fazer como link.
 
 import React from "react";
 import { useFormik } from 'formik';
@@ -21,14 +20,10 @@ function FormularioLogin() {
       senha: Yup.string().min(8, 'Deve conter no mínimo 8 caracteres').required('Senha obrigatória')
     }),
 
-    //tirar depois
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
+    
   });
 
   return (
-    // ajeitar a imagem
     <main className="container-login">
       
       <div className="titulo-login">
@@ -62,14 +57,15 @@ function FormularioLogin() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.senha}
+          
         />
         {formik.touched.senha && formik.errors.senha ? (
           <div>{formik.errors.senha}</div>
         ) : null}
 
         <button type="submit">Entrar</button>
-
-        <p>botar o  Ainda não tem cadastro?</p>
+        
+        <p>botar o  Ainda não tem cadastro?</p> 
         <p> Clique para sua conta!</p>
 
       </form>

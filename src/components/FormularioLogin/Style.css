@@ -11,6 +11,8 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-bottom: 2rem;
+
 }
 .imagem{
     
@@ -21,9 +23,9 @@
 
 }
 .Formulario-email h1{
-    
     font-weight: normal;
     font-size: 4rem;
+    
 }
 
 .Formulario-email{
@@ -32,17 +34,21 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    
     gap: 0.5rem;
 }
 
 
 .Formulario-email label{
+    padding-top: 0.5rem;
     text-align: left;
     width: 100%;
     max-width: 42.5rem;
+    
 }
 
 .Formulario-email input{
+    
     width: 100%;
     max-width: 42.5rem;
     padding: 0.3rem;
@@ -53,7 +59,8 @@
 
 }
 
-.Formulario-email button{
+.container-login button{
+    margin-top: 2rem;
     max-width: 42.5rem;
     width: 100%;
     background-color: var(--cor-fundo-escuro);
@@ -62,11 +69,18 @@
     border:none;
     border-radius: 0.3rem;
     padding: 0.3rem;
+    margin-bottom: 2rem;
 }
 
 .Formulario p{
+    
     display: flex;
     margin: auto;
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
+}
+
+@media screen and (min-width: 280px){
+    
 }
