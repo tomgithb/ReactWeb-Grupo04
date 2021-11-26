@@ -1,0 +1,158 @@
+.subheader {
+    position:fixed;
+    margin-top: var(--tamanho-header);
+    left: 0;
+    width: 100%;
+    z-index: 9;
+    height: var(--tamanho-subheader);
+    
+    background-color: #01091D;
+    font-family: var(--fonte-principal);
+    color: white;
+}
+
+
+.barra-subheader {   /*fazer isso quando quiser alinhar tudo no centro*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 100%;
+    width: 100%;
+    padding: 0 5%;
+}
+
+.menu-drop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 20rem;
+
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+}
+
+.todas-categorias {
+    white-space: nowrap;
+    font-size: 1rem;
+    display: block;
+}
+
+.todas-categorias a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.todas-categorias a:hover {
+	color:#EBCB26;	
+}
+
+.barra-links-categorias {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 100%;
+    width: 100%;
+    padding-left: 4rem;
+}
+
+.barra-links-categorias, a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.barra-links-categorias, a:hover {
+	color:#EBCB26;	
+}
+
+.menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button img {
+    width: var(--tamanho-fonte-forms);
+    height: var(--tamanho-fonte-forms);
+    
+    margin-right: 0.8rem;
+    gap: 0.8;
+    align-items: center;
+}
+
+.menu-button {
+    cursor: pointer;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+.menu {
+    display: none;
+    position: fixed;
+    top: calc(var(--tamanho-header) + var(--tamanho-subheader));
+    background-color: #01091D;
+    opacity: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    width: calc(var(--tamanho-fonte-header) * 10);
+}
+
+.menu > ul {
+   display: flex;
+   flex-direction: column;   
+}
+
+.menu ul li {
+    padding: .75rem 1rem;
+ }
+
+ .menu ul ul {
+    background-color: burlywood;
+ }
+
+ /* MEDIA QUERIES */
+ 
+@media only screen and (max-width: 550px) {
+    
+    .subheader {
+        padding: 1rem 0%;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .menu-drop {
+        width: 100%;
+    }
+
+    .menu-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .barra-links-categorias {
+        display: none;
+    }
+    
+
+
+}
