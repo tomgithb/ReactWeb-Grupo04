@@ -46,3 +46,17 @@ body {
     /* Fontes */
     --fonte-principal: 'Montserrat', sans-serif;
 }
+
+@media only screen and (max-width: 900px){ 
+
+    body {
+        --tamanho-header: 10rem;
+    }
+}
+
+@media only screen and (max-width: 420px){ 
+
+    body {
+        --tamanho-header: 8rem;
+    }
+}

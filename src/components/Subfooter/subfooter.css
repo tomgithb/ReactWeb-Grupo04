@@ -1,0 +1,68 @@
+.subfooter {
+    padding: 0 5%;
+    height: var(--tamanho-footer);
+    width: 100vw;
+    background-color: #121B2E;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+
+.pagamentos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    gap: 1rem;
+}
+
+.titulo-forma {
+    width: 15rem;
+    display: inline;
+    top: -85px;
+    left: 435px;
+    align-items: center; 
+    /* position: relative!important; */
+    /* margin: 15rem; */
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.125rem;
+    text-align: center;
+    color: #fff;
+}
+
+.certificados > img {
+    max-width: 20rem;
+    width: 100%;
+    height: auto;
+}
+
+.pagamentos > img {
+    max-width: 30rem;
+    width: 100%;
+    height: auto;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 500px) {
+    .subfooter {
+        padding: 1rem 5%;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .pagamentos {
+        padding: 1rem 5%;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
