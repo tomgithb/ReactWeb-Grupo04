@@ -20,18 +20,18 @@ function FormularioLogin() {
       senha: Yup.string().min(8, 'Deve conter no mínimo 8 caracteres').required('Senha obrigatória')
     }),
 
-    
+
   });
 
   return (
     <main className="container-login">
-      
+
       <div className="titulo-login">
-      <img src="./img/user.png" className="imagem"></img>
-      <h1>Login</h1>
+        <img src="./img/user.png" className="imagem" alt="Ícone de usuário" />
+        <h1>Login</h1>
       </div>
 
-      
+
 
       <form className="Formulario-email" onSubmit={formik.handleSubmit}>
         <label htmlFor="email">e-mail</label>
@@ -57,15 +57,15 @@ function FormularioLogin() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.senha}
-          
+
         />
         {formik.touched.senha && formik.errors.senha ? (
           <div>{formik.errors.senha}</div>
         ) : null}
 
         <button type="submit">Entrar</button>
-        
-        <p>botar o  Ainda não tem cadastro?</p> 
+
+        <p>botar o  Ainda não tem cadastro?</p>
         <p> Clique para sua conta!</p>
 
       </form>
