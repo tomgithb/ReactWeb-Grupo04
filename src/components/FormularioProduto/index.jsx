@@ -130,9 +130,10 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
 
 
   return (
-    <main><h1>Cadastro de produto</h1>
+    <main className="container-cadastro-produto">
+      <h1>Cadastro de produto</h1>
       <form className="CadastroProduto" onSubmit={formik.handleSubmit}>
-        <label htmlFor="produto">Nome do produto <spam id="alerta">*</spam></label>
+        <label htmlFor="produto">Nome do produto <span id="alerta">*</span></label>
         <input
           id="produto"
           nome="produto"
@@ -141,9 +142,9 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
           onBlur={formik.handleBlur}
           value={formik.values.produto}
         />
-        {formik.touched.produto && formik.errors.produto ? <div class="error">{formik.errors.produto}</div> : null}
+        {formik.touched.produto && formik.errors.produto ? <div className="error">{formik.errors.produto}</div> : null}
 
-        <label htmlFor="descricao">Descrição <spam id="alerta">*</spam></label>
+        <label htmlFor="descricao">Descrição <span id="alerta">*</span></label>
         <input
           id="descricao"
           nome="descricao"
@@ -152,29 +153,28 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
           onBlur={formik.handleBlur}
           value={formik.values.descricao}
         />
-        {formik.touched.descricao && formik.errors.descricao ? <div class="error">{formik.errors.descricao}</div> : null}
+        {formik.touched.descricao && formik.errors.descricao ? <div className="error">{formik.errors.descricao}</div> : null}
 
 
         <div id="div-meio">
-          <div class="esquerda">
-            <label htmlFor="estoque">Qtd em estoque <spam id="alerta">*</spam></label>
+          <div className="esquerda">
+            <label htmlFor="estoque">Qtd em estoque <span id="alerta">*</span></label>
             <input
               id="estoque"
               nome="estoque"
               type="number"
-              onkeypress="return event.charCode >= 48"
               min="1"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.estoque}
             />
-            {formik.touched.estoque && formik.errors.estoque ? <div class="error">{formik.errors.estoque}</div> : null}
+            {formik.touched.estoque && formik.errors.estoque ? <div className="error">{formik.errors.estoque}</div> : null}
 
 
 
           </div>
-          <div class="direita">
-            <label htmlFor="fabricacao">Data de fabricação <spam id="alerta">*</spam></label>
+          <div className="direita">
+            <label htmlFor="fabricacao">Data de fabricação <span id="alerta">*</span></label>
             <input
               id="fabricacao"
               nome="fabricacao"
@@ -183,27 +183,26 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
               onBlur={formik.handleBlur}
               value={formik.values.fabricacao}
             />
-            {formik.touched.fabricacao && formik.errors.fabricacao ? <div class="error">{formik.errors.fabricacao}</div> : null}
+            {formik.touched.fabricacao && formik.errors.fabricacao ? <div className="error">{formik.errors.fabricacao}</div> : null}
 
           </div>
         </div>
         <div id="div-meio">
-          <div class="esquerda">
-            <label htmlFor="garantia">Garantia (meses) <spam id="alerta">*</spam></label>
+          <div className="esquerda">
+            <label htmlFor="garantia">Garantia (meses) <span id="alerta">*</span></label>
             <input
               id="garantia"
               nome="garantia"
               type="number"
-              onkeypress="return event.charCode >= 48"
               min="0"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.garantia}
             />
-            {formik.touched.garantia && formik.errors.garantia ? <div class="error">{formik.errors.garantia}</div> : null}
+            {formik.touched.garantia && formik.errors.garantia ? <div className="error">{formik.errors.garantia}</div> : null}
           </div>
-          <div class="direita">
-            <label htmlFor="preco">Preço unitário <spam id="alerta">*</spam></label>
+          <div className="direita">
+            <label htmlFor="preco">Preço unitário <span id="alerta">*</span></label>
             <input
               id="preco"
               nome="preco"
@@ -215,13 +214,13 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
               onBlur={formik.handleBlur}
               value={formik.values.preco}
             />
-            {formik.touched.preco && formik.errors.preco ? <div class="error">{formik.errors.preco}</div> : null}
+            {formik.touched.preco && formik.errors.preco ? <div className="error">{formik.errors.preco}</div> : null}
           </div>
         </div>
 
 
 
-        <label>Categoria <spam id="alerta">*</spam></label>
+        <label>Categoria <span id="alerta">*</span></label>
         <select
           nome="categoria"
           type="dropdown"
@@ -232,17 +231,16 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
             : categorias
               .map((categoria) => {
                 return (
-                  <option value={categoria.id}>{categoria.nome}</option>
+                  <option key={categoria.id} value={categoria.id}>{categoria.nome}</option>
                 );
               })}
 
         </select>
 
+        <input id="botao" type='submit' nome="enviar" value="Cadastrar Produto" />
 
-        <input id="botao" type='submit' nome="enviar" value="CADASTRAR PRODUTO" />
-
-
-      </form ></main>
+      </form>
+    </main>
   );
 }
 

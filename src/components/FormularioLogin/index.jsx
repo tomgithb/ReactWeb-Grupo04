@@ -1,11 +1,10 @@
-//Clique para sua conta! fazer como link.
+import { Link } from 'react-router-dom';
 
 import React from "react";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-import "./Style.css";
-
+import "./style.css";
 
 
 function FormularioLogin() {
@@ -31,10 +30,8 @@ function FormularioLogin() {
         <h1>Login</h1>
       </div>
 
-
-
-      <form className="Formulario-email" onSubmit={formik.handleSubmit}>
-        <label htmlFor="email">e-mail</label>
+      <form className="formulario-email" onSubmit={formik.handleSubmit}>
+        <label htmlFor="email">E-mail</label>
         <input
           id="email"
           name="email"
@@ -48,7 +45,7 @@ function FormularioLogin() {
           <div>{formik.errors.email}</div>
         ) : null}
 
-        <label>senha:</label>
+        <label>Senha:</label>
         <input
           id="senha"
           name="senha"
@@ -65,8 +62,8 @@ function FormularioLogin() {
 
         <button type="submit">Entrar</button>
 
-        <p>botar o  Ainda não tem cadastro?</p>
-        <p> Clique para sua conta!</p>
+        <p>Ainda não tem cadastro?</p>
+        <Link to={`cadastro-usuario`}><p>Clique para sua conta!</p></Link>
 
       </form>
     </main>
