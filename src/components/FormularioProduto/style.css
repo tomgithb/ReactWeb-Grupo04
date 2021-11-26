@@ -1,0 +1,101 @@
+main{
+  background-color: var(--cor-fundo-claro);
+  font-family: var(--fonte-principal);
+  /* margin-top: var(--tamanho-header); */
+}  
+
+h1{
+  text-align: left;
+  padding-top: 2rem; 
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+
+}
+
+.CadastroProduto{
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: 50%;
+  gap: 0rem;
+}
+
+#alerta{
+  color: var(--cor-texto-alerta);
+}
+
+.error {
+  color: var(--cor-texto-alerta);
+  font-style: italic;
+}
+
+
+#div-meio{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+ 
+}
+
+.esquerda{
+  width: 50%;
+  padding-right: 5%;
+}
+.direita{
+  width: 50%;
+}
+
+
+.CadastroProduto label{
+  text-align: left;
+  display: flex;
+  white-space: nowrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.CadastroProduto input, select{
+  font-size: var(--tamanho-fonte-forms);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  width: 100%;
+  background-color: var(--cor-caixa-texto);
+
+}
+
+#fabricacao{
+height: 2.625rem;
+}
+
+
+#botao{
+  display: flex;
+  justify-content: center;
+  margin-top: 6%;
+  margin-bottom: 15%;
+  padding: 0,2rem 2rem;
+  background-color: var(--cor-fundo-escuro);
+  color: var(--cor-texto-claro);
+  font-size: var(--tamanho-fonte-buttons);
+}
+
+@media only screen and (max-width: 790px) {
+  #div-meio{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .esquerda, .direita{
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+ #botao{
+   font-size: 100%;
+ }
+}
