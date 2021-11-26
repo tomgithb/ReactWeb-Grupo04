@@ -1,0 +1,77 @@
+.container-login{
+    background-color: var(--cor-fundo-claro);
+    padding-top: calc(var(--tamanho-header) + var(--tamanho-subheader) + 2rem);
+    padding-bottom: 2rem;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    min-height: calc(100vh - var(--tamanho-footer));
+    font-size: var(--tamanho-fonte-forms);
+}
+
+.titulo-login{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+}
+
+.imagem{
+    max-width: 2.5rem;
+    width: auto;
+    height: auto;
+
+}
+
+.formulario-email{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+    gap: 0.5rem;
+}
+
+.formulario-email h1{
+    font-size: var(--tamanho-fonte-titulos); 
+}
+
+.formulario-email label{
+    padding-top: 0.5rem;
+    text-align: left;
+    width: 100%;
+    max-width: 42.5rem;
+    
+}
+
+.formulario-email input{
+    width: 100%;
+    max-width: 42.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border:none;
+    background-color: var(--cor-caixa-texto);
+    font-size: var(--tamanho-fonte-forms);
+}
+
+.container-login button{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: .5rem 2rem;
+    max-width: 42.5rem;
+    width: 100%;
+    background-color: var(--cor-fundo-escuro);
+    font-size: var(--tamanho-fonte-buttons);
+    color: var(--cor-texto-claro) ;
+    border:none;
+    border-radius: 0.5rem;
+}
+
+.formulario-email p{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

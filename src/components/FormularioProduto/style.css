@@ -1,0 +1,103 @@
+.container-cadastro-produto{
+  background-color: var(--cor-fundo-claro);
+  padding-top: calc(var(--tamanho-header) + var(--tamanho-subheader) + 2rem);
+  padding-bottom: 2rem;
+  padding-left: 5%;
+  padding-right: 5%;
+
+  min-height: calc(100vh - var(--tamanho-footer));
+  font-size: var(--tamanho-fonte-forms);
+}  
+
+.container-cadastro-produto h1{
+  margin-bottom: 2rem;
+  font-size: var(--tamanho-fonte-titulos);
+}
+
+.CadastroProduto{
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: 100%;
+  max-width: 42.5rem;
+}
+
+#alerta {
+  color: var(--cor-texto-alerta);
+}
+
+.error {
+  color: var(--cor-texto-alerta);
+  font-style: italic;
+}
+
+
+#div-meio{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+ 
+}
+
+.esquerda{
+  width: 50%;
+  padding-right: 5%;
+}
+.direita{
+  width: 50%;
+}
+
+
+.CadastroProduto label{
+  text-align: left;
+  display: flex;
+  white-space: nowrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.CadastroProduto input, select{
+  font-size: var(--tamanho-fonte-forms);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  background-color: var(--cor-caixa-texto);
+
+}
+
+#fabricacao{
+  height: 2.625rem;
+}
+
+
+#botao{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: .5rem 2rem;
+  background-color: var(--cor-fundo-escuro);
+  color: var(--cor-texto-claro);
+  font-size: var(--tamanho-fonte-buttons);
+}
+
+@media only screen and (max-width: 790px) {
+  #div-meio{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .esquerda, .direita{
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+ #botao{
+   /* font-size: 100%; */
+ }
+}

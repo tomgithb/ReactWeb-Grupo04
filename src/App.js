@@ -1,6 +1,11 @@
+import Routes from "./Routes";
+
+//importe do global css 
+import "./global.css";
+
 function App() {
   return (
-    <h1>Alguma coisa</h1>
+    <Routes />
   );
 }
 
