@@ -1,30 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+
+import { CredenciaisContext } from '../../context/credenciais';
+
 
 import api from "../../service/api";
 
 import "./style.css"
 
-
-//  function cadastrarProduto() {
-//   api
-//     .post(`api/v1/produtos`, {
-//       auth: {
-//         username: 'wellington',
-//         password: 'batatafrita'
-//       },
-//       //O que vai ser passado na request, tipo dados e headers
-//     })
-//     .then((response) => {
-//       if (response.status === 201) {
-//         //O que vai acontecer se der tudo certo
-//       }
-//     })
-//     .catch((error) => {
-//       // O que vai se der tudo errado
-//     });
-// }
 
 /*
 *  FUNÇÃO DO FORMULARIO DE CADASTRO DE PRODUTO
@@ -39,6 +24,64 @@ function FormularioProduto() {
   const [categoria, setCategoria] = useState(0);
   const [categorias, setCategorias] = useState([]);
   const [fotoProduto, setFotoProduto] = useState('');
+  const [fotoProdutoFileName, setFotoProdutoFileName] = useState('');
+  const { credenciais } = useContext(CredenciaisContext);
+  const history = useHistory();
+
+
+  function cadastrarProduto() {
+    let formData = new FormData();
+    formData.append('file', fotoProduto);
+
+    const produto = {
+      nome: nome,
+      descricao: descricao,
+      qtdEstoque: +estoque,
+      dataFabricacao: fabricacao,
+      tempoGarantia: +garantia,
+      precoUnitario: +preco,
+      categoria: {
+        id: +categoria
+      }
+    }
+    console.log(produto);
+    formData.append('produto', JSON.stringify(produto));
+    console.log(formData);
+    api
+      .post(`api/v1/produtos`, formData, {
+        headers: {
+          "Content-Type": `multipart/form-data; boundary=${formData._boundary}`
+        },
+        auth: {
+          username: credenciais.login,
+          password: credenciais.senha
+        },
+        data: '[form]'
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          alert("Produto Cadastrado com sucesso");
+          limpaEstados();
+        }
+      })
+      .catch((error) => {
+        if(error?.response?.data.titulo === 'Recurso já existe no sistema'){
+          alert("Usuário já possui outro produto com o mesmo nome!");
+        }
+      });
+  }
+
+  function limpaEstados() {
+    setNome('');
+    setDescricao('');
+    setGarantia('');
+    setEstoque('');
+    setPreco('');
+    setFabricacao('');
+    setCategoria(0);
+    setFotoProduto('');
+    setFotoProdutoFileName('');
+  }
 
   function handleSetNome(e) {
     setNome(e.target.value);
@@ -70,7 +113,8 @@ function FormularioProduto() {
   }
 
   function handleSetFotoProduto(e) {
-    setFotoProduto(e.target.value);
+    setFotoProduto(e.target.files[0]);
+    setFotoProdutoFileName(e.target.value);
   }
 
   useEffect(() => {
@@ -92,10 +136,10 @@ function FormularioProduto() {
     initialValues: {
       produto: '',
       descricao: '',
-      estoque: 0,
+      estoque: '',
       fabricacao: '',
-      garantia: 0,
-      preco: 0,
+      garantia: '',
+      preco: '',
       categoria: 0,
       "foto-produto": ''
     },
@@ -118,7 +162,11 @@ function FormularioProduto() {
 
       <h1>Cadastro de produto</h1>
 
-      <form className="cadastro-produto" onSubmit={formik.handleSubmit}>
+      <form className="cadastro-produto" onSubmit={(e) => {
+        formik.handleSubmit(e)
+        cadastrarProduto();
+        }}
+      >
 
         <label htmlFor="produto">
           Nome do produto
@@ -274,12 +322,12 @@ function FormularioProduto() {
             formik.handleChange(e);
           }}
           onBlur={formik.handleBlur}
-          value={fotoProduto}
+          value={fotoProdutoFileName}
         />
         {formik.touched["foto-produto"] && formik.errors["foto-produto"] ? <div className="error">{formik.errors["foto-produto"]}</div> : null}
 
 
-        <input id="botao" type='submit' name="enviar" value="Cadastrar Produto" />
+        <input id="botao" type='submit' name="enviar" value="Cadastrar Produto" disabled={!(formik.isValid && formik.dirty)}/>
 
       </form>
     </main>

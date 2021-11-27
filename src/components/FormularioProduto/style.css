@@ -73,6 +73,7 @@
 }
 
 #botao{
+  cursor: pointer;
   display: flex;
   justify-content: center;
   margin-top: 2rem;
