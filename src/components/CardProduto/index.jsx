@@ -11,7 +11,7 @@ function CardProduto({ produto }) {
 
 
     async function handleComprar() {
-        if (credenciais.login === null && credenciais.senha === null) {
+        if ((credenciais.login === null && credenciais.senha === null) || (credenciais.login === undefined && credenciais.senha === undefined)) {
             alert("Realize login antes de comprar itens");
             return;
         }

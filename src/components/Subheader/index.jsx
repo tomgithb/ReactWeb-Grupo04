@@ -38,7 +38,9 @@ function Subheader() {
 									: categorias.map((categoria) => {
 											return (
 												<li key={categoria.id} className={"c-dropdown__item cat" + categoria.id}>
-													{categoria.nome}
+													<a key={categoria.id} className={"cat-dropdown" + categoria.id} href={"/categoria/" + categoria.id}>
+														{categoria.nome}
+													</a>
 												</li>
 											);
 									  })}
@@ -51,7 +53,7 @@ function Subheader() {
 						? ""
 						: categorias.map((categoria, index) => {
 								return (
-									<a key={categoria.id} className={"cat-destaque" + (index+1)} href="#">
+									<a key={categoria.id} className={"cat-destaque" + (index+1)} href={"/categoria/" + categoria.id}>
 										{categoria.nome}
 									</a>
 								);

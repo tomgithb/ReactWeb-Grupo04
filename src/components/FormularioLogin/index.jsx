@@ -18,14 +18,14 @@ function FormularioLogin() {
   const history = useHistory();
 
   useEffect(() => {
-    if(credenciais.login !== null && credenciais.senha !== null) {
+    if((credenciais.login !== null && credenciais.senha !== null) && (credenciais.login !== undefined && credenciais.senha !== undefined)) {
       history.push('/minha-conta');
     }
   }, [credenciais]);
 
   async function efetuaLogin(){
     let usuario = await getUsuario();
-    if(credenciais.login !== null && credenciais.senha !== null) {
+    if((credenciais.login !== null && credenciais.senha !== null) && (credenciais.login !== undefined && credenciais.senha !== undefined)) {
       alert("Usuário já logado");
     }
 

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 export const estadoCredenciais = {
-    login: null,
-    senha: null
+    login: undefined,
+    senha: undefined
 }
 
 export const CredenciaisContext = React.createContext(null);

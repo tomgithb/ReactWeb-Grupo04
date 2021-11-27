@@ -8,7 +8,7 @@ function Header() {
   const [statusLogin, setStatusLogin] = useState(false);
 
   useEffect(() => {
-    if (credenciais.login !== null && credenciais.senha !== null) {
+    if ((credenciais.login !== null && credenciais.senha !== null) && (credenciais.login !== undefined && credenciais.senha !== undefined)) {
       setStatusLogin(true);
     } else {
       setStatusLogin(false);

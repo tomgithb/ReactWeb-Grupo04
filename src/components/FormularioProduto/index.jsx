@@ -44,9 +44,10 @@ function FormularioProduto() {
         id: +categoria
       }
     }
-    console.log(produto);
+
+
     formData.append('produto', JSON.stringify(produto));
-    console.log(formData);
+
     api
       .post(`api/v1/produtos`, formData, {
         headers: {
@@ -118,9 +119,13 @@ function FormularioProduto() {
   }
 
   useEffect(() => {
-    if(credenciais.login == null && credenciais.senha == null) {
-      history.push('/login');
-    }
+      if (credenciais.login === undefined && credenciais.senha === undefined) {
+        return;
+      }
+      if(credenciais.login === null && credenciais.senha === null) {
+        
+        history.push('/login');
+      }
   }, [credenciais]);
 
   useEffect(() => {
