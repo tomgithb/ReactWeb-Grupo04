@@ -1,8 +1,11 @@
+import Compras from "../../components/Compras";
+import Vendas from "../../components/Vendas";
 
 function MinhaConta() {
     return (
         <>
-            <h1>Inserir a página minha conta aqui</h1>
+            <Compras />
+            <Vendas />
         </>
     );
 }
