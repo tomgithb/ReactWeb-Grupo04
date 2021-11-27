@@ -1,4 +1,4 @@
-.container {
+.container-categoria {
     background-color: var(--cor-fundo-claro);
     padding-top: calc(var(--tamanho-header) + var(--tamanho-subheader) + 2rem);
     padding-bottom: 2rem;
@@ -11,7 +11,7 @@
     
 
 }
-.formularioCategoria{
+.container-categoria .formulario-categoria{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,36 +22,33 @@
     
 
 }
-.formularioCategoria label {
+.container-categoria .formulario-categoria label {
     margin-top: 2rem;
 }
 
-.textDescricao {
+.container-categoria .text-descricao {
     margin-top: 2rem;
     font-family: Montserrat;
     font-size: 2rem;
     color: #000000;
 }
-.textCategoria {
+.container-categoria .text-categoria {
     margin-top: 2rem;
    
-
     font-family: Montserrat;
     font-size: 2rem;
     color: #000000;
 
 }
-.textCadastroCategoria{
+.container-categoria .text-cadastro-categoria{
     margin-top: 2rem;
-   
 
     font-family: Montserrat;
     font-size: 3rem;
     color: #000000;
-
 }
 
-.input {
+.container-categoria .input {
   
    padding-bottom:8rem;
    text-align:start;
@@ -71,7 +68,7 @@
     color: #0a0a0a;
 }
 
-.Categoria {
+.container-categoria .categoria {
     
     
     height: 3.8rem;
@@ -88,13 +85,9 @@
     color: #0a0a0a;
 }
 
-.buttonCadastrar {
-    
-   
+.container-categoria .button-cadastrar {
     height: 3.9rem;
     
-
-   
     background: #01091D;
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
@@ -107,21 +100,21 @@
     color: #ffffff
     
 }
-    .buttonCadastrar:hover {
+
+.container-categoria .button-cadastrar:hover {
     background-color: var(--cor-fundo-escuro-alternativo);
     
  } 
 
  @media (max-width: 620px ) {
-     .textCadastroCategoria {
+    .container-categoria .text-cadastro-categoria {
          font-size:2.25rem;
      }
      
  }
 
  @media (max-width:463px ) {
-    
-    .textCadastroCategoria {
+    .container-categoria .text-cadastro-categoria {
          font-size:2rem;
          white-space: nowrap;
 
@@ -129,18 +122,14 @@
  }
 
  @media (max-width:420px ) {
-   
-    .textCadastroCategoria {
+    .container-categoria .text-cadastro-categoria {
         font-size:2rem;
         white-space: nowrap;
-
     }
-    
  }
 
  @media (max-width:411px ) {
-   
-    .textCadastroCategoria {
+    .container-categoria .text-cadastro-categoria {
         font-size:1.75rem;
         white-space: nowrap;
 
