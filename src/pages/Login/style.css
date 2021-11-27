@@ -1,8 +1,8 @@
-.formulario-email a {
+.formulario-login a {
     color: var(--cor-texto-destacado);
     transition: color .4s;
 }
 
-.formulario-email a:hover {
+.formulario-login a:hover {
     color: var(--cor-texto-destacado-alternativo);
 }

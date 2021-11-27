@@ -17,14 +17,14 @@
 
 }
 
-.imagem{
+.login-imagem{
     max-width: 2.5rem;
     width: auto;
     height: auto;
 
 }
 
-.formulario-email{
+.formulario-login{
     display: flex;
     margin: auto;
     flex-direction: column;
@@ -34,11 +34,11 @@
     gap: 0.5rem;
 }
 
-.formulario-email h1{
+.formulario-login h1{
     font-size: var(--tamanho-fonte-titulos); 
 }
 
-.formulario-email label{
+.formulario-login label{
     padding-top: 0.5rem;
     text-align: left;
     width: 100%;
@@ -46,7 +46,7 @@
     
 }
 
-.formulario-email input{
+.formulario-login input{
     width: 100%;
     max-width: 42.5rem;
     padding: 0.5rem;
@@ -56,20 +56,28 @@
     font-size: var(--tamanho-fonte-forms);
 }
 
+.container-login .mensagem-validacao {
+    color: var(--cor-texto-alerta);
+}
+
 .container-login button{
+    cursor: pointer;
+
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding: .5rem 2rem;
     max-width: 42.5rem;
     width: 100%;
+    
+    border:none;
+    border-radius: 0.5rem;
+    
     background-color: var(--cor-fundo-escuro);
     font-size: var(--tamanho-fonte-buttons);
     color: var(--cor-texto-claro) ;
-    border:none;
-    border-radius: 0.5rem;
 }
 
-.formulario-email p{
+.formulario-login p{
     
     display: flex;
     flex-direction: column;

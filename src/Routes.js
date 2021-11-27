@@ -1,5 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useEffect, useContext } from "react";
+import {CredenciaisContext} from "./context/credenciais";
+
 
 import Home from "./pages/Home";
 import Login from './pages/Login';
@@ -9,7 +12,18 @@ import CadastroCategoria from "./pages/CadastroCategoria";
 import MinhaConta from "./pages/MinhaConta";
 import Carrinho from "./pages/Carrinho";
 
+
 function Routes() {
+    const { handleSetCredenciais } = useContext(CredenciaisContext);
+
+    useEffect(() => {
+        let credenciaisStorage = JSON.parse(localStorage.getItem("credenciais"));
+        if (credenciaisStorage !== null && credenciaisStorage !== undefined) {
+            handleSetCredenciais(credenciaisStorage);
+        }
+        console.log("foi")
+    }, []);
+
     return (
         <BrowserRouter>
             <Switch>
