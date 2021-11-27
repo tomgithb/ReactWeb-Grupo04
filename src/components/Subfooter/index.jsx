@@ -3,12 +3,12 @@ import "./subfooter.css";
 function Subfooter() {
     return (
 
-        <section class="subfooter">
-                <div class="certificados">
+        <section className="subfooter">
+                <div className="certificados">
                     <img src="../img/certificados.png" alt="certificados"></img>
                 </div>
 
-                <div class="pagamentos">
+                <div className="pagamentos">
                     <div className="titulo-forma">
                     <p>Formas de Pagamento</p>
                     </div>
