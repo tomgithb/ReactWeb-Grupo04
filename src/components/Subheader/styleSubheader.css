@@ -47,13 +47,15 @@
 }
 
 .subheader .todas-categorias,
-.subheader .barra-links-categorias a{
+.subheader .barra-links-categorias a,
+.subheader .C-dropdown a {
     text-decoration: none;
     color: var(--cor-texto-claro);
 }
 
 .subheader .todas-categorias:hover,
-.subheader .barra-links-categorias a:hover {
+.subheader .barra-links-categorias a:hover,
+.subheader .C-dropdown a:hover {
 	color: var(--cor-texto-destacado);	
 }
 
