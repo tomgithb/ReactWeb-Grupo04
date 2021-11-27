@@ -1,6 +1,19 @@
 import "./style.css";
+import React, { useState, useEffect, useContext } from "react";
+import { CredenciaisContext } from "../../context/credenciais";
 
 function Header() {
+	const { credenciais } = useContext(CredenciaisContext);
+	const [statusLogin, setStatusLogin] = useState(false);
+
+	useEffect(() => {
+		if (credenciais.login !== null && credenciais.senha !== null) {
+			setStatusLogin(true);
+		} else {
+			setStatusLogin(false);
+		}
+	}, [credenciais]);
+
 	return (
 		<header>
 			<nav className="barra-navegacao">
@@ -26,7 +39,7 @@ function Header() {
 
 					<div className="bem-vindo-login">
 						<p>Bem-vindo :)</p>
-						<a href="/login">Login</a>
+						{statusLogin ? <a href="/minha-conta" className="minha-conta">Minha conta</a> : <a href="/login">Login</a>}
 					</div>
 				</div>
 			</nav>

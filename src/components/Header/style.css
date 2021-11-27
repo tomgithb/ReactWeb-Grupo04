@@ -23,7 +23,7 @@ header .barra-navegacao {
 }
 
 header #logo-imagem {
-	height: calc(var(--tamanho-header) - 2rem);
+	height: calc(var(--tamanho-header) - 3rem);
 }
 
 header form {
@@ -102,16 +102,21 @@ header .bem-vindo-login p {
 
 header .bem-vindo-login {
 	z-index: 3;
-	font-size: 1.2rem;
+	font-size: 1.25rem;
 }
 
 header .bem-vindo-login a {
+	white-space: nowrap;
 	color: var(--cor-texto-claro);
 	text-decoration: none;
 }
 
 header .bem-vindo-login a:hover {
 	color: var(--cor-texto-destacado);
+}
+
+header .bem-vindo-login a.minha-conta {
+	font-size: 1rem;
 }
 
 /* MEDIA QUERIES */
@@ -141,13 +146,13 @@ header .bem-vindo-login a:hover {
 	}
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 440px) {
 	header #logo-imagem {
 		height: 3rem;
 	}
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 390px) {
 	header .barra-navegacao {
 		column-gap: 0.5rem;
 	}

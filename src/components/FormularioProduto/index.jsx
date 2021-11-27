@@ -118,6 +118,12 @@ function FormularioProduto() {
   }
 
   useEffect(() => {
+    if(credenciais.login == null && credenciais.senha == null) {
+      history.push('/login');
+    }
+  }, [credenciais]);
+
+  useEffect(() => {
     api
       .get(`api/v1/categorias`)
       .then((response) => {

@@ -65,13 +65,13 @@ body {
 }
 
 
-@media only screen and (max-width: 420px){ 
+@media only screen and (max-width: 440px){ 
     body {
         --tamanho-header: 8rem;
     }
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 390px) {
     body {
         --tamanho-fonte-footer: .925rem;
     }
