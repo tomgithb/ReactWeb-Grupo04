@@ -1,101 +1,77 @@
 import React, { useState, useEffect } from "react";
 import { useFormik } from 'formik';
-import api from "../../service/api";
+import * as Yup from 'yup';
 
+import api from "../../service/api";
 
 import "./style.css"
 
 
-/* function cadastrarProduto() {
-  api
-    .post(`api/v1/produtos`, {
-      auth: {
-        username: 'wellington',
-        password: 'batatafrita'
-      },
-      //O que vai ser passado na request, tipo dados e headers
-    })
-    .then((response) => {
-      if (response.status === 201) {
-        //O que vai acontecer se der tudo certo
-      }
-    })
-    .catch((error) => {
-      // O que vai se der tudo errado
-    });
-} */
-
-/*
-*  VALIDAÇÃO DE CAMPOS DO FORMULARIO DE CADASTRO DE PRODUTO
-*
-* Enviar dados para API
-*/
-
-const validate = values => {
-  const errors = {};
-  if (!values.produto) {
-    errors.produto = 'Nome não pode ficar em branco. O campo deve ser preenchido!';
-  } else if (values.produto.length < 4) {
-    errors.produto = 'Nome muito curto.';
-  } else if (values.produto.length > 40) {
-    errors.produto = 'Nome muito grande.';
-  }
-
-
-  if (!values.descricao) {
-    errors.descricao = 'Descrição não pode ficar em branco. O campo deve ser preenchido!';
-  } else if (values.descricao.length < 5) {
-    errors.descricao = 'Sua descrição está muito curta.';
-  } else if (values.descricao.length > 75) {
-    errors.descricao = 'Sua descrição está muito grande.';
-  }
-
-
-  if (!values.estoque) {
-    errors.estoque = 'Valor mínimo permitido é de 1 produto no estoque.';
-  } else if (values.estoque < 0) {
-    errors.estoque = "O estoque não pode ter valor negativo";
-  }
-
-  if (values.garantia < 0) {
-    errors.garantia = "A garantia não pode ter valor negativo";
-  }
-
-
-  var dataAtual = new Date();
-  var data = new Date(values.fabricacao);
-
-  /*   console.log(dataAtual);
-    console.log(data);
-   */
-  if (!values.fabricacao) {
-    errors.fabricacao = 'A data não pode ficar em branco ou ser uma data futura.';
-
-  } else if (data > dataAtual) {
-    errors.fabricacao = "Data inválida, Fabricação não pode estar no futuro!";
-
-  }
-  if (!values.preco) {
-    errors.preco = 'O preço não pode ficar em branco.';
-  } else if (values.preco < 0) {
-    errors.preco = "O preço não pode ter valor negativo.";
-  } else if (values.preco > 99999.99) {
-    errors.preco = "O preço não pode ser tão alto.";
-  }
-
-  return errors;
-};
-
-
-
+//  function cadastrarProduto() {
+//   api
+//     .post(`api/v1/produtos`, {
+//       auth: {
+//         username: 'wellington',
+//         password: 'batatafrita'
+//       },
+//       //O que vai ser passado na request, tipo dados e headers
+//     })
+//     .then((response) => {
+//       if (response.status === 201) {
+//         //O que vai acontecer se der tudo certo
+//       }
+//     })
+//     .catch((error) => {
+//       // O que vai se der tudo errado
+//     });
+// }
 
 /*
 *  FUNÇÃO DO FORMULARIO DE CADASTRO DE PRODUTO
 */
-function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoque, setEstoque, fabricacao, setFabricacao, garantia, setGarantia, preco, setPreco, categoria, setCategoria, salvarRegistro }) {
-
-
+function FormularioProduto() {
+  const [nome, setNome] = useState('');
+  const [descricao, setDescricao] = useState('');
+  const [estoque, setEstoque] = useState(0);
+  const [fabricacao, setFabricacao] = useState('');
+  const [garantia, setGarantia] = useState(0);
+  const [preco, setPreco] = useState(0.00);
+  const [categoria, setCategoria] = useState(0);
   const [categorias, setCategorias] = useState([]);
+  const [fotoProduto, setFotoProduto] = useState('');
+
+  function handleSetNome(e) {
+    setNome(e.target.value);
+  }
+
+  function handleSetDescricao(e) {
+    setDescricao(e.target.value);
+  }
+
+  function handleSetEstoque(e) {
+    setEstoque(e.target.value);
+  }
+
+  function handleSetFabricacao(e) {
+    console.log(e.target.value)
+    setFabricacao(e.target.value);
+  }
+
+  function handleSetGarantia(e) {
+    setGarantia(e.target.value);
+  }
+
+  function handleSetPreco(e) {
+    setPreco(e.target.value);
+  }
+
+  function handleSetCategoria(e) {
+    setCategoria(e.target.value);
+  }
+
+  function handleSetFotoProduto(e) {
+    setFotoProduto(e.target.value);
+  }
 
   useEffect(() => {
     api
@@ -116,72 +92,105 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
     initialValues: {
       produto: '',
       descricao: '',
-      estoque: '',
+      estoque: 0,
       fabricacao: '',
-      garantia: '',
-      preco: '',
+      garantia: 0,
+      preco: 0,
+      categoria: 0,
+      "foto-produto": ''
     },
 
-    validate,
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
+    validationSchema: Yup.object({
+      produto: Yup.string().min(4, 'Nome deve conter no mínimo 4 caracteres').max(40, 'Nome deve conter no máximo 40 caracteres').required('Nome não pode ficar em branco. O campo deve ser preenchido!'),
+      descricao: Yup.string().min(5, 'Descrição deve conter no mínimo 5 caracteres').max(75, 'Descrição deve conter no máximo 75 caracteres').required('Descrição não pode ficar em branco. O campo deve ser preenchido!'),
+      estoque: Yup.number().min(1, 'Estoque não pode ter valor negativo').required('Estoque não pode ficar em branco. O campo deve ser preenchido!'),
+      garantia: Yup.number().min(0, 'Garantia não pode ter valor negativo').required('Garantia não pode ficar em branco. O campo deve ser preenchido!'),
+      fabricacao: Yup.date().max(new Date(), 'Data de fabricação não pode estar no futuro!').required('Data de fabricação não pode ficar em branco. O campo deve ser preenchido!'),
+      categoria: Yup.number().min(1, 'Categoria não poder ficar em branco').required('Categoria não poder ficar em branco'),
+      preco: Yup.number().min(0.01, 'Preço não pode ter valor negativo ou zero.').max(99999.99, 'Preço não pode ser tão alto').required('Preço não pode ficar em branco. O campo deve ser preenchido!'),
+      "foto-produto": Yup.mixed().required('Foto do produto é obrigatória')
+    })
   });
 
 
   return (
     <main className="container-cadastro-produto">
+
       <h1>Cadastro de produto</h1>
-      <form className="CadastroProduto" onSubmit={formik.handleSubmit}>
-        <label htmlFor="produto">Nome do produto <span id="alerta">*</span></label>
+
+      <form className="cadastro-produto" onSubmit={formik.handleSubmit}>
+
+        <label htmlFor="produto">
+          Nome do produto
+          <span id="alerta">*</span>
+        </label>
+
         <input
           id="produto"
-          nome="produto"
+          name="produto"
           type="text"
-          onChange={formik.handleChange}
+          onChange={(e) => {
+            handleSetNome(e);
+            formik.handleChange(e);
+          }}
           onBlur={formik.handleBlur}
-          value={formik.values.produto}
+          value={nome}
         />
         {formik.touched.produto && formik.errors.produto ? <div className="error">{formik.errors.produto}</div> : null}
 
-        <label htmlFor="descricao">Descrição <span id="alerta">*</span></label>
+        <label htmlFor="descricao">
+          Descrição
+          <span id="alerta">*</span>
+        </label>
+
         <input
           id="descricao"
-          nome="descricao"
+          name="descricao"
           type="text"
-          onChange={formik.handleChange}
+          onChange={(e) => {
+            handleSetDescricao(e);
+            formik.handleChange(e);
+          }}
           onBlur={formik.handleBlur}
-          value={formik.values.descricao}
+          value={descricao}
         />
         {formik.touched.descricao && formik.errors.descricao ? <div className="error">{formik.errors.descricao}</div> : null}
 
 
         <div id="div-meio">
           <div className="esquerda">
-            <label htmlFor="estoque">Qtd em estoque <span id="alerta">*</span></label>
+            <label htmlFor="estoque">
+              Qtd em estoque
+              <span id="alerta">*</span>
+            </label>
             <input
               id="estoque"
-              nome="estoque"
+              name="estoque"
               type="number"
               min="1"
-              onChange={formik.handleChange}
+              onChange={(e) => {
+                handleSetEstoque(e);
+                formik.handleChange(e);
+              }}
               onBlur={formik.handleBlur}
-              value={formik.values.estoque}
+              value={estoque}
             />
             {formik.touched.estoque && formik.errors.estoque ? <div className="error">{formik.errors.estoque}</div> : null}
-
-
-
           </div>
+
           <div className="direita">
             <label htmlFor="fabricacao">Data de fabricação <span id="alerta">*</span></label>
             <input
               id="fabricacao"
-              nome="fabricacao"
+              name="fabricacao"
               type="date"
-              onChange={formik.handleChange}
+              onChange={(e) => {
+                console.log(e.target.value)
+                handleSetFabricacao(e);
+                formik.handleChange(e);
+              }}
               onBlur={formik.handleBlur}
-              value={formik.values.fabricacao}
+              value={fabricacao}
             />
             {formik.touched.fabricacao && formik.errors.fabricacao ? <div className="error">{formik.errors.fabricacao}</div> : null}
 
@@ -192,12 +201,15 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
             <label htmlFor="garantia">Garantia (meses) <span id="alerta">*</span></label>
             <input
               id="garantia"
-              nome="garantia"
+              name="garantia"
               type="number"
               min="0"
-              onChange={formik.handleChange}
+              onChange={(e) => {
+                handleSetGarantia(e);
+                formik.handleChange(e);
+              }}
               onBlur={formik.handleBlur}
-              value={formik.values.garantia}
+              value={garantia}
             />
             {formik.touched.garantia && formik.errors.garantia ? <div className="error">{formik.errors.garantia}</div> : null}
           </div>
@@ -205,27 +217,39 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
             <label htmlFor="preco">Preço unitário <span id="alerta">*</span></label>
             <input
               id="preco"
-              nome="preco"
+              name="preco"
               type="number"
-              placeholder="R$ 00.00"
+              placeholder="R$ 0.00"
               min="0.01"
               step="0.01"
-              onChange={formik.handleChange}
+              onChange={(e) => {
+                handleSetPreco(e);
+                formik.handleChange(e);
+              }}
               onBlur={formik.handleBlur}
-              value={formik.values.preco}
+              value={preco}
             />
             {formik.touched.preco && formik.errors.preco ? <div className="error">{formik.errors.preco}</div> : null}
           </div>
         </div>
 
-
-
-        <label>Categoria <span id="alerta">*</span></label>
+        <label htmlFor="categoria">
+          Categoria
+          <span id="alerta">*</span>
+        </label>
         <select
-          nome="categoria"
+          id="categoria"
+          name="categoria"
           type="dropdown"
+          onChange={(e) => {
+            console.log(e.target.value)
+            handleSetCategoria(e);
+            formik.handleChange(e);
+          }}
+          onBlur={formik.handleBlur}
+          value={categoria}
         >
-          <option name="test">  </option>
+          <option value='0'></option>
           {categorias.length === 0
             ? ""
             : categorias
@@ -234,10 +258,28 @@ function FormularioProduto({ produto, setProduto, descricao, setDescricao, estoq
                   <option key={categoria.id} value={categoria.id}>{categoria.nome}</option>
                 );
               })}
-
         </select>
+        {formik.touched.categoria && formik.errors.categoria ? <div className="error">{formik.errors.categoria}</div> : null}
 
-        <input id="botao" type='submit' nome="enviar" value="Cadastrar Produto" />
+        <label htmlFor="foto-produto">
+          Foto do Produto
+          <span id="alerta">*</span>
+        </label>
+        <input
+          type="file"
+          name="foto-produto"
+          id="foto-produto"
+          onChange={(e) => {
+            handleSetFotoProduto(e);
+            formik.handleChange(e);
+          }}
+          onBlur={formik.handleBlur}
+          value={fotoProduto}
+        />
+        {formik.touched["foto-produto"] && formik.errors["foto-produto"] ? <div className="error">{formik.errors["foto-produto"]}</div> : null}
+
+
+        <input id="botao" type='submit' name="enviar" value="Cadastrar Produto" />
 
       </form>
     </main>
