@@ -11,6 +11,7 @@ import CadastroUsuario from "./pages/CadastroUsuario";
 import CadastroCategoria from "./pages/CadastroCategoria";
 import MinhaConta from "./pages/MinhaConta";
 import Carrinho from "./pages/Carrinho";
+import Pesquisa from "./pages/Pesquisa";
 
 
 function Routes() {
@@ -33,6 +34,7 @@ function Routes() {
                 <Route path="/cadastro-categoria" component={CadastroCategoria} />
                 <Route path="/minha-conta" component={MinhaConta} />
                 <Route path="/carrinho" component={Carrinho} />
+                <Route path="/pesquisa/:nome" component={Pesquisa} />
                 <Route path="/" component={Home} />
             </Switch>
         </BrowserRouter>
