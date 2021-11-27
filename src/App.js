@@ -1,6 +1,18 @@
+import Routes from "./Routes";
+import Header from "./components/Header";
+
+import ContextoCredenciais from "./context/credenciais";
+//importe do global css 
+import "./global.css";
+
+
 function App() {
   return (
-    <h1>Alguma coisa</h1>
+    <ContextoCredenciais>
+      <Header />
+      <Routes />
+      
+    </ContextoCredenciais>
   );
 }
 

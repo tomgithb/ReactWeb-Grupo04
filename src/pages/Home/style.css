@@ -1,0 +1,29 @@
+.home {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    padding-top: calc(var(--tamanho-header) + var(--tamanho-subheader) + 2rem);
+    padding-bottom: 2rem;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    min-height: calc(100vh - var(--tamanho-footer) - var(--tamanho-subfooter));
+    
+    background-color: var(--cor-fundo-claro);
+
+}
+
+@media only screen and (max-width: 680px) {
+    .home {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .home > div {
+        width: auto;
+        max-width: 17.75rem;
+    }
+}
