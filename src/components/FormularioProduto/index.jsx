@@ -25,7 +25,7 @@ function FormularioProduto() {
   const [categorias, setCategorias] = useState([]);
   const [fotoProduto, setFotoProduto] = useState('');
   const [fotoProdutoFileName, setFotoProdutoFileName] = useState('');
-  const { credenciais } = useContext(CredenciaisContext);
+  const { credenciais, credenciaisCarregadas } = useContext(CredenciaisContext);
   const history = useHistory();
 
 
@@ -68,6 +68,9 @@ function FormularioProduto() {
       .catch((error) => {
         if(error?.response?.data.titulo === 'Recurso já existe no sistema'){
           alert("Usuário já possui outro produto com o mesmo nome!");
+        }
+        else {
+          alert("Ocorreu um erro ao cadastrar o produto");
         }
       });
   }
@@ -119,14 +122,13 @@ function FormularioProduto() {
   }
 
   useEffect(() => {
-      if (credenciais.login === undefined && credenciais.senha === undefined) {
-        return;
+    console.log(credenciaisCarregadas);
+    if (credenciaisCarregadas) {
+      if (credenciais.login === null && credenciais.senha === null) {
+        history.push("/login");
       }
-      if(credenciais.login === null && credenciais.senha === null) {
-        
-        history.push('/login');
-      }
-  }, [credenciais]);
+    }
+  }, [credenciaisCarregadas]);
 
   useEffect(() => {
     api

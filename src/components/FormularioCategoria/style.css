@@ -6,28 +6,23 @@
     padding-right: 5%;
 
     min-height: calc(100vh - var(--tamanho-footer));
-    /* font-size: var(--tamanho-fonte-forms); */
-    /* width: 100%; */
+    font-size: var(--tamanho-fonte-forms);
+    /* width: 100%;*/
 }
 
 .text-cadastro-categoria{
-    padding-top: 0.5rem;
-
-    font-family: var(--fonte-principal);
+    margin-bottom: 1rem;
+    
     font-size: var(--tamanho-fonte-titulos);
-    color: #000000;
 }
 
 .formulario-categoria{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
     width: 100%;
     max-width: 42.5rem;
     margin: auto;  
-
-    font-family: var(--fonte-principal);
 }
 
 
@@ -35,30 +30,11 @@
     text-align: left;
     display: flex;
     white-space: nowrap;
-    gap: 0.5rem;
     margin-top: 0.8rem;
-    margin-bottom: 0.2rem;
-
-    font-size: var(--tamanho-fonte-forms);
-    font-family: var(--fonte-principal);
+    margin-bottom: 0.5rem;
 }
 
-.text-descricao {
-    margin-top: 2rem;
-    font-family: var(--fonte-principal);
-    font-size: 2rem;
-    color: #000000;
-}
-.text-categoria {
-    margin-top: 2rem;
-   
-    font-family: var(--fonte-principal);
-    font-size: 2rem;
-    color: #000000;
-
-}
-
-.input {
+.categoria-descricao {
   
     border: none;
     padding: 0.5rem;
@@ -69,26 +45,25 @@
         
     height: 11.3rem;
     margin-bottom: 1rem;
-    background: var(--cor-caixa-texto);
+    background-color: var(--cor-caixa-texto);
     resize: none;
-        
-    font-family: var(--fonte-principal);
-    font-size: var(--tamanho-fonte-forms);
+    
     line-height: 2rem;
 
     color: #0a0a0a;
 }
 
-.digite-categoria {  
-    
+.categoria-nome {   
     border: none;
     padding: 0.5rem;
     border-radius: 0.5rem;
     width: 100%;
     background-color: var(--cor-caixa-texto);
-    font-family: var(--fonte-principal);
-    font-size: var(--tamanho-fonte-forms);
+}
 
+.categoria-nome,
+.categoria-descricao {
+    font-size: var(--tamanho-fonte-forms);
 }
 
 .button-cadastrar {
@@ -97,7 +72,7 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
     padding: .5rem 2rem;
     background-color: var(--cor-fundo-escuro);
     color: var(--cor-texto-claro);
@@ -107,12 +82,6 @@
 
 .button-cadastrar:hover {
     background-color: var(--cor-fundo-escuro-alternativo);
-    
  } 
 
- @media only screen and (max-width:513px ) {
-    .text-cadastro-categoria {
-        font-size: var(--tamanho-fonte-subtitulos);
-    }
- }
 

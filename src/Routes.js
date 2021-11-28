@@ -16,13 +16,14 @@ import ProdutoCategoria from "./pages/ProdutoCategoria";
 
 
 function Routes() {
-    const { handleSetCredenciais } = useContext(CredenciaisContext);
+    const { handleSetCredenciais, handleSetCredenciaisCarregadas } = useContext(CredenciaisContext);
 
     useEffect(() => {
         let credenciaisStorage = JSON.parse(localStorage.getItem("credenciais"));
         if (credenciaisStorage !== null && credenciaisStorage !== undefined) {
             handleSetCredenciais(credenciaisStorage);
         }
+        handleSetCredenciaisCarregadas();
     }, []);
 
     return (

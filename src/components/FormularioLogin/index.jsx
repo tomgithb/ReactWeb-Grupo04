@@ -12,14 +12,16 @@ import "./style.css";
 
 
 function FormularioLogin() {
-  const {credenciais, handleSetCredenciais} = useContext(CredenciaisContext);
+  const {credenciais, handleSetCredenciais, credenciaisCarregadas} = useContext(CredenciaisContext);
   const [nomeUsuario, setNomeUsuario] = useState('');
   const [senha, setSenha] = useState('');
   const history = useHistory();
 
   useEffect(() => {
-    if((credenciais.login !== null && credenciais.senha !== null) && (credenciais.login !== undefined && credenciais.senha !== undefined)) {
-      history.push('/minha-conta');
+    if(credenciaisCarregadas) {
+      if((credenciais.login !== null && credenciais.senha !== null) && (credenciais.login !== undefined && credenciais.senha !== undefined)) {
+        history.push('/minha-conta');
+      }
     }
   }, [credenciais]);
 
