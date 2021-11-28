@@ -1,8 +1,9 @@
+import FormularioUsuario from "../../components/FormularioUsuario";
 
 function CadastroUsuario() {
     return (
         <>
-            <h1>Inserir form de cadastro de usuários aqui</h1>
+            <FormularioUsuario />
         </>
     );
 }
