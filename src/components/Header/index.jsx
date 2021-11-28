@@ -1,4 +1,5 @@
 import "./style.css";
+import {BarraPesquisa } from "./style";
 import React, { useState, useEffect, useContext } from "react";
 import { CredenciaisContext } from "../../context/credenciais";
 
@@ -34,7 +35,7 @@ function Header() {
             alt="Logo com imagem de um carrinho com o nome do site e o numero 4"
           />
         </a>
-        <form onSubmit={(e) => {
+        <BarraPesquisa onSubmit={(e) => {
 			realizaBusca(e);
 		}}>
           <label htmlFor="pesquisa">Digite sua pesquisa:</label>
@@ -51,7 +52,7 @@ function Header() {
           <button className="lupa-botao">
             <img src="../img/search.svg" className="lupa" alt="Imagem de uma lupa. Botão de Pesquisa" />
           </button>
-        </form>
+        </BarraPesquisa>
 
         <div className="links-navegacao">
           <a href="/carrinho">

@@ -1,9 +1,10 @@
-import "./subfooter.css";
+
+import {SubRodapé} from "./style";
 
 function Subfooter() {
     return (
 
-        <section className="subfooter">
+        <SubRodapé className="subfooter">
                 <div className="certificados">
                     <img src="../img/certificados.png" alt="certificados"></img>
                 </div>
@@ -16,7 +17,7 @@ function Subfooter() {
                 </div>
 
 
-        </section>
+        </SubRodapé>
 
    );
 

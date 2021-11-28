@@ -1,4 +1,7 @@
-footer {
+import styled from 'styled-components';
+
+export const Rodapé = styled.footer`
+
     padding: 0 5%;
     height: var(--tamanho-footer);
     width: 100%;
@@ -9,22 +12,21 @@ footer {
     align-items: center;
     flex-wrap: nowrap;
     gap: 1rem;
-}
 
-footer .direitos-de-uso {  
+
+.direitos-de-uso {  
     font-family: 'Montserrat', sans-serif;
     font-size: var(--tamanho-fonte-footer);
     color: #fff;
 }
 
-footer .logo-footer {
+.logo-footer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
 }
-
-footer .logo-footer > img {
+.logo-footer > img {
     height: 3rem;
 }
 
@@ -32,13 +34,16 @@ footer .logo-footer > img {
 /*MEDIA QUERIES*/
 
 @media only screen and (max-width: 500px) {
-    footer {
+    
         padding: 1rem 5%;
         flex-direction: column;
         justify-content: center;
-    }
+    
 
-    footer .direitos-de-uso {
+        .direitos-de-uso {
         text-align: center;
     }
 }
+
+
+`;
