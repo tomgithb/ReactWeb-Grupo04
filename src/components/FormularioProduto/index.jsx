@@ -122,7 +122,6 @@ function FormularioProduto() {
   }
 
   useEffect(() => {
-    console.log(credenciaisCarregadas);
     if (credenciaisCarregadas) {
       if (credenciais.login === null && credenciais.senha === null) {
         history.push("/login");

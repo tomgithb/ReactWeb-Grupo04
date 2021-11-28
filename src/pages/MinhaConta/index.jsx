@@ -11,7 +11,7 @@ import { CredenciaisContext } from '../../context/credenciais';
 
 function MinhaConta() {
   const [escolha, setEscolha] = useState(1);
-  const { credenciais, credenciaisCarregadas } = useContext(CredenciaisContext);
+  const { credenciais, credenciaisCarregadas, handleSetCredenciais } = useContext(CredenciaisContext);
   const history = useHistory();
 
   const cards = [
@@ -45,7 +45,23 @@ function MinhaConta() {
       descricao: "Cadastrar novas categorias",
       altImagem: "Ícone de cadastro de categorias com o símbolo de uma lista",
     },
+    {
+      imagem: "./img/log-out.svg",
+      titulo: "Log out",
+      descricao: "Deslogar da conta atual",
+      altImagem: "Ícone de logout com uma seta apontando para fora de uma caixa",
+    },
   ];
+
+  function realizarLogout() {
+    localStorage.removeItem('credenciais');
+    handleSetCredenciais({
+      login: null,
+      senha: null
+    });
+    alert("Usuário deslogado com sucesso");
+    history.push("/");
+  }
 
   useEffect(() =>{ 
     if(escolha === 4) {
@@ -53,6 +69,9 @@ function MinhaConta() {
     }
     else if (escolha === 5) {
       history.push('/cadastro-categoria');
+    }
+    else if (escolha === 6) {
+      realizarLogout();
     }
   }, [escolha]);
 
