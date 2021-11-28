@@ -1,0 +1,171 @@
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9;
+	height: var(--tamanho-header);
+
+	background-color: var(--cor-fundo-escuro);
+	font-size: var(--tamanho-fonte-header);
+	color: var(--cor-texto-claro);
+}
+
+header .barra-navegacao {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+
+	height: 100%;
+	width: 100%;
+	padding: 0 5%;
+}
+
+header #logo-imagem {
+	height: calc(var(--tamanho-header) - 3rem);
+}
+
+header form {
+	padding: 0 1rem;
+	max-width: 46rem;
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	font-size: var(--tamanho-fonte-forms);
+}
+
+/* Esconder label, mas manter acessibilidade */
+header label {
+	position: absolute;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+header input {
+	padding: 0.6rem;
+	max-width: 42rem;
+	width: 100%;
+	border: none;
+    border-radius: .25rem;
+	outline: 0;
+    font-size: var(--tamanho-fonte-forms);
+}
+
+header .lupa-botao {
+	cursor: pointer;
+	background-color: transparent;
+
+	color: #ffffff;
+	border: none;
+}
+
+header .lupa {
+	width: var(--tamanho-fonte-forms);
+	height: var(--tamanho-fonte-forms);
+}
+
+header .lupa:hover {
+	filter: invert(1%) sepia(74%) saturate(4131%) hue-rotate(332deg) brightness(95%) contrast(95%);
+}
+
+header .carrinho {
+	width: 2.1rem;
+	height: 2.1rem;
+}
+
+header .carrinho:hover {
+	filter: invert(1%) sepia(74%) saturate(4131%) hue-rotate(332deg) brightness(95%) contrast(95%);
+}
+
+header .links-navegacao {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+header .bem-vindo-login p {
+	white-space: nowrap;
+	font-size: 0.75rem;
+	font-weight: bold;
+}
+
+header .bem-vindo-login {
+	z-index: 3;
+	font-size: 1.25rem;
+}
+
+header .bem-vindo-login a {
+	white-space: nowrap;
+	color: var(--cor-texto-claro);
+	text-decoration: none;
+}
+
+header .bem-vindo-login a:hover {
+	color: var(--cor-texto-destacado);
+}
+
+header .bem-vindo-login a.minha-conta {
+	font-size: 1rem;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 900px) {
+	header .barra-navegacao {
+		row-gap: 1rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		height: auto;
+		flex-wrap: wrap;
+	}
+
+	header #logo-imagem {
+		height: 4rem;
+	}
+
+	header form {
+		padding: 0;
+		max-width: auto;
+		order: 3;
+	}
+
+	header input {
+		max-width: auto;
+        font-size: 1rem;
+	}
+}
+
+@media only screen and (max-width: 440px) {
+	header #logo-imagem {
+		height: 3rem;
+	}
+}
+
+@media only screen and (max-width: 390px) {
+	header .barra-navegacao {
+		column-gap: 0.5rem;
+	}
+	header #logo-imagem {
+		height: 2rem;
+	}
+
+	header .carrinho {
+		width: 1.625rem;
+		height: 1.625rem;
+	}
+
+	header .links-navegacao {
+		gap: 1rem;
+	}
+}

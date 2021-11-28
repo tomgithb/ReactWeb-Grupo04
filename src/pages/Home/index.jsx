@@ -2,7 +2,10 @@ import React, {useEffect, useState} from 'react';
 
 import api from '../../service/api';
 
+import Subheader from '../../components/Subheader';
 import CardProduto from "../../components/CardProduto";
+import Subfooter from '../../components/Subfooter';
+import Footer from '../../components/Footer';
 
 import './style.css';
 
@@ -26,6 +29,8 @@ function Home() {
     
 
     return (
+        <>
+        <Subheader />
         <main className="home">
         {
         produtos.length === 0
@@ -37,6 +42,9 @@ function Home() {
                   );
                 })}
         </main>
+        <Subfooter />
+        <Footer />
+        </>
     );
 }
 

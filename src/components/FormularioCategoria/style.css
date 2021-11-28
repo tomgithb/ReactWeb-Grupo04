@@ -1,0 +1,138 @@
+.container-categoria {
+    background-color: var(--cor-fundo-claro);
+    padding-top: calc(var(--tamanho-header) + var(--tamanho-subheader) + 2rem);
+    padding-bottom: 2rem;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    min-height: calc(100vh - var(--tamanho-footer));
+    font-size: var(--tamanho-fonte-forms);
+    width: 100%;
+    
+
+}
+.container-categoria .formulario-categoria{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 42.5rem;
+    margin: auto;
+    
+
+}
+.container-categoria .formulario-categoria label {
+    margin-top: 2rem;
+}
+
+.container-categoria .text-descricao {
+    margin-top: 2rem;
+    font-family: Montserrat;
+    font-size: 2rem;
+    color: #000000;
+}
+.container-categoria .text-categoria {
+    margin-top: 2rem;
+   
+    font-family: Montserrat;
+    font-size: 2rem;
+    color: #000000;
+
+}
+.container-categoria .text-cadastro-categoria{
+    margin-top: 2rem;
+
+    font-family: Montserrat;
+    font-size: 3rem;
+    color: #000000;
+}
+
+.container-categoria .input {
+  
+   padding-bottom:8rem;
+   text-align:start;
+    width: 100%;
+    
+    height: 11.3rem;
+    margin-bottom: 2rem;
+    background: rgba(209, 209, 209, 0.54);
+    resize: none;
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 2rem;
+
+    color: #0a0a0a;
+}
+
+.container-categoria .categoria {
+    
+    
+    height: 3.8rem;
+
+    background: rgba(209, 209, 209, 0.54);
+    
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 2rem;
+
+    color: #0a0a0a;
+}
+
+.container-categoria .button-cadastrar {
+    height: 3.9rem;
+    
+    background: #01091D;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    
+
+    font-size: 1.375rem;
+    font-family: Montserrat;
+    color: #ffffff
+    
+}
+
+.container-categoria .button-cadastrar:hover {
+    background-color: var(--cor-fundo-escuro-alternativo);
+    
+ } 
+
+ @media (max-width: 620px ) {
+    .container-categoria .text-cadastro-categoria {
+         font-size:2.25rem;
+     }
+     
+ }
+
+ @media (max-width:463px ) {
+    .container-categoria .text-cadastro-categoria {
+         font-size:2rem;
+         white-space: nowrap;
+
+     }
+ }
+
+ @media (max-width:420px ) {
+    .container-categoria .text-cadastro-categoria {
+        font-size:2rem;
+        white-space: nowrap;
+    }
+ }
+
+ @media (max-width:411px ) {
+    .container-categoria .text-cadastro-categoria {
+        font-size:1.75rem;
+        white-space: nowrap;
+
+    }
+    
+ }

@@ -14,7 +14,7 @@
   font-size: var(--tamanho-fonte-titulos);
 }
 
-.CadastroProduto{
+.cadastro-produto{
   display: flex;
   margin: auto;
   flex-direction: column;
@@ -31,7 +31,6 @@
   font-style: italic;
 }
 
-
 #div-meio{
   width: 100%;
   display: flex;
@@ -44,12 +43,12 @@
   width: 50%;
   padding-right: 5%;
 }
+
 .direita{
   width: 50%;
 }
 
-
-.CadastroProduto label{
+.cadastro-produto label{
   text-align: left;
   display: flex;
   white-space: nowrap;
@@ -58,7 +57,8 @@
   margin-bottom: 0.2rem;
 }
 
-.CadastroProduto input, select{
+.cadastro-produto input, 
+.cadastro-produto select{
   font-size: var(--tamanho-fonte-forms);
   border: none;
   padding: 0.5rem;
@@ -72,8 +72,8 @@
   height: 2.625rem;
 }
 
-
 #botao{
+  cursor: pointer;
   display: flex;
   justify-content: center;
   margin-top: 2rem;
@@ -94,10 +94,4 @@
     width: 100%;
     padding-right: 0;
   }
-}
-
-@media only screen and (max-width: 600px) {
- #botao{
-   /* font-size: 100%; */
- }
 }

@@ -20,7 +20,7 @@ body {
     /* Cores */
     --cor-fundo-escuro: #01091D;
     --cor-fundo-escuro-alternativo: #121B2E;
-    --cor-fundo-claro: #F0F0F0;
+    --cor-fundo-claro: #F4F4F4;
     --cor-fundo-cinza: #E5E5E5;
     --cor-caixa-texto: #D1D1D1;
     --cor-texto-placeholder: #7C7777;
@@ -33,8 +33,8 @@ body {
     /* Tamanho compoentes */
     --tamanho-header: 6.75rem;
     --tamanho-subheader: 3.375rem;
-    --tamanho-footer: 6.75rem;
-    --tamanho-subfooter: 10.125rem;
+    --tamanho-footer: 6rem;
+    --tamanho-subfooter: 6.75rem;
     
     /* Tamanho fontes */
     --tamanho-fonte-header: 1.375rem;
@@ -47,6 +47,32 @@ body {
 
     /* Fontes */
     --fonte-principal: 'Montserrat', sans-serif;
-    
     font-family: 'Montserrat', sans-serif;
+}
+
+@media only screen and (max-width: 900px){ 
+    body {
+        --tamanho-header: 10rem;
+    }
+}
+
+@media only screen and (max-width: 500px){ 
+    body {
+        --tamanho-footer: 10rem;
+        --tamanho-fonte-footer: 1rem;
+        --tamanho-subfooter: 12rem;
+    }
+}
+
+
+@media only screen and (max-width: 440px){ 
+    body {
+        --tamanho-header: 8rem;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    body {
+        --tamanho-fonte-footer: .925rem;
+    }
 }
