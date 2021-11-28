@@ -1,0 +1,38 @@
+.container-minha-conta{
+  background-color: var(--cor-fundo-claro);
+  /* padding-top: calc(var(--tamanho-header) + var(--tamanho-subheader) + 2rem);  */
+  padding-bottom: 2rem;
+  padding-left: 5%;
+  padding-right: 5%;
+
+  min-height: calc(100vh - var(--tamanho-footer));
+
+}  
+
+.corpo{
+  display: flex;
+  justify-items: flex-end;
+gap: 0rem;
+}
+
+.lateral{
+  width: 20%;
+}
+
+h3{
+  margin-bottom: 0.2rem;
+}
+
+@media only screen and (max-width: 790px) {
+ .corpo{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .lateral{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+}
