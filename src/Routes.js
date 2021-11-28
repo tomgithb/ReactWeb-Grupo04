@@ -23,7 +23,6 @@ function Routes() {
         if (credenciaisStorage !== null && credenciaisStorage !== undefined) {
             handleSetCredenciais(credenciaisStorage);
         }
-        console.log("foi")
     }, []);
 
     return (
