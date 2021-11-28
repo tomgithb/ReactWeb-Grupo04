@@ -1,5 +1,5 @@
 .container-vendas{
-    width: 48rem;
+    width: 100%;
     height: fit-content;
     background-color: #F4F4F4;
     padding-bottom: 2rem;
@@ -9,12 +9,14 @@
 .container-vendas .titulo {
     padding-top: 1rem;
     padding-left: 1rem;
+    font-size: var(--tamanho-fonte-subtitulos);
+    margin-bottom: 2rem;
 }
 
 .container-vendas .informacao {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     margin: auto;
     padding: 1rem;
@@ -25,7 +27,6 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 0.3rem;
-    margin: 0 1rem;
     padding: 1rem;
 
     background-color: #E7E7E7;
@@ -72,7 +73,7 @@
         align-items: center;
         text-align: center;
         max-width: auto;
-        width: 21.3rem;
+        width: 100%;
         height: fit-content;
         flex-direction: column;
 

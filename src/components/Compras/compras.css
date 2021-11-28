@@ -1,5 +1,5 @@
 .container-compras {
-    width: 48rem;
+    width: 100%;
     height: fit-content;
     background-color: #F4F4F4;
     padding-bottom: 2rem;
@@ -9,23 +9,24 @@
 .container-compras .titulo {
     padding-top: 1rem;
     padding-left: 1rem;
+    font-size: var(--tamanho-fonte-subtitulos);
+    margin-bottom: 2rem;
 }
 
 .container-compras .informacao {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     margin: auto;
     padding: 1rem;
 }
 
-.container-compras .info-container {
+.container-compras .info-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 0.3rem;
-    gap: 1rem;
     padding: 1rem;
 
     background-color: #E7E7E7;
@@ -39,7 +40,7 @@
 
 @media only screen and (max-width: 400px){
 
-    .container-compras .barra-navegacao {
+    .container-compras{
         max-width: 24.5rem;
         row-gap: 1rem;
         padding-top: 1rem;
@@ -72,7 +73,7 @@
         align-items: center;
         text-align: center;
         max-width: auto;
-        width: 21.3rem;
+        width: 100%;
         height: fit-content;
         flex-direction: column;
 

@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import CardMinhaConta from "../../components/CardMinhaConta";
+import FormularioUsuario from "../../components/FormularioUsuario";
+import Vendas from "../../components/Vendas";
+import Compras from "../../components/Compras";
 import "./style.css";
 
+import { CredenciaisContext } from '../../context/credenciais';
+
 function MinhaConta() {
+  const [escolha, setEscolha] = useState(1);
+  const { credenciais, credenciaisCarregadas } = useContext(CredenciaisContext);
+  const history = useHistory();
+
   const cards = [
     {
       imagem: "./img/user.png",
@@ -32,6 +42,25 @@ function MinhaConta() {
     },
   ];
 
+  useEffect(() =>{ 
+    if(escolha === 4) {
+      history.push('/cadastro-produto');
+    }
+    else if (escolha === 5) {
+      history.push('/cadastro-categoria');
+    }
+  }, [escolha]);
+
+  useEffect(() => {
+    console.log(credenciaisCarregadas);
+    if (credenciaisCarregadas) {
+      if (credenciais.login === null && credenciais.senha === null) {
+        history.push("/login");
+      }
+    }
+  }, [credenciaisCarregadas]);
+  
+
   return (
     <main className="container-minha-conta">
       <div className="menu">
@@ -39,12 +68,24 @@ function MinhaConta() {
           {cards.length === 0
             ? ""
             : cards.map((card, index) => {
-                return <CardMinhaConta key={index} informacoes={card} />;
+                return <CardMinhaConta key={index} informacoes={card} setEscolha={setEscolha} index={index} escolha={escolha} />;
               })}
         </div>
 
         <div className="container-principal">
-          <h2>Cantinho do Wellington</h2>
+          {
+            escolha === 1
+            ? <FormularioUsuario />
+            : (
+                escolha === 2
+              )
+              ? <Compras />
+              : (
+                escolha === 3
+              )
+              ? <Vendas />
+                : ""
+          }
         </div>
       </div>
     </main>

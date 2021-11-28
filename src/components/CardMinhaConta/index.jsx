@@ -1,8 +1,11 @@
 import { ContainerCards } from "./style";
 
-function CardMinhaConta({informacoes}) {
+function CardMinhaConta({informacoes, index, escolha, setEscolha}) {
   return (
-    <ContainerCards onClick={() => alert("Ops! Você clicou.")}>
+    <ContainerCards className={escolha === (index+1) ? 'card-ativo' : ''} onClick={() => {
+      setEscolha(index+1);
+      console.log(index+1);
+      }}>
       <img src={informacoes.imagem} className="imagem" alt="Ícone de usuário" />
 
       <div className="texto">

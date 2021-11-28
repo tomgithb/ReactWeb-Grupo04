@@ -1,6 +1,6 @@
 .container-categoria {
     background-color: var(--cor-fundo-claro);
-    padding-top: calc(var(--tamanho-header) + var(--tamanho-subheader) + 2rem);
+    padding-top: calc(var(--tamanho-header) + 2rem);
     padding-bottom: 2rem;
     padding-left: 5%;
     padding-right: 5%;
