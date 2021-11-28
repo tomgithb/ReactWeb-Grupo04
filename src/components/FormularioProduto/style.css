@@ -82,7 +82,13 @@
   background-color: var(--cor-fundo-escuro);
   color: var(--cor-texto-claro);
   font-size: var(--tamanho-fonte-buttons);
+  
+  transition: background-color .4s;
 }
+
+#botao:hover {
+    background-color: var(--cor-fundo-escuro-alternativo);
+ } 
 
 @media only screen and (max-width: 790px) {
   #div-meio{

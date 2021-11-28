@@ -75,7 +75,12 @@
     background-color: var(--cor-fundo-escuro);
     font-size: var(--tamanho-fonte-buttons);
     color: var(--cor-texto-claro) ;
+    transition: background-color .4s;
 }
+
+.container-login button:hover {
+    background-color: var(--cor-fundo-escuro-alternativo);
+ } 
 
 .formulario-login p{
     

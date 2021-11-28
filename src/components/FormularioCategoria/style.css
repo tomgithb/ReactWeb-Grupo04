@@ -78,6 +78,7 @@
     color: var(--cor-texto-claro);
     font-size: var(--tamanho-fonte-buttons);
     
+    transition: background-color .4s;
 }
 
 .button-cadastrar:hover {
