@@ -16,8 +16,8 @@ function FormularioCategoria() {
         <div className="container-categoria">
             <h1 className="text-cadastro-categoria">Cadastro de categoria</h1>
             <form className="formulario-categoria" onSubmit={cadastrarCategoria}>
-                <label htmlform="categoria">Nome da categoria: </label>
-                <input className="categoria" type="text" id="categoria" name="categoria" placeholder="Digite categoria" onChange={(e) => setCategoria(e.target.value)} />
+                <label htmlform="categoria-label">Nome da categoria: </label>
+                <input className="digite-categoria" type="text" placeholder="Digite categoria" onChange={(e) => setCategoria(e.target.value)} />
 
                 <label htmlform="descricao">Descrição: </label>
                 <textarea className="input" type="text" id="descricao" name="descricao" placeholder="Descreva categoria" onChange={(e) => setDescrição(e.target.value)} />
