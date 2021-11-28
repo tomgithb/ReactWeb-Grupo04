@@ -98,7 +98,10 @@ function CardProduto({ produto }) {
 
             }).then(() => {
                 alert("Pedido criado com sucesso!");
-            });
+            })
+            .catch((error) => {
+                alert(error.response.data.listaErros[0]);
+            }) ;
     }
 
     function atualizaCarrinho(pedido) {
@@ -114,6 +117,9 @@ function CardProduto({ produto }) {
 
             }).then(() => {
                 alert("Pedido atualizado com sucesso!");
+            })
+            .catch((error) => {
+                alert(error.response.data.listaErros[0]);
             });
     }
 
