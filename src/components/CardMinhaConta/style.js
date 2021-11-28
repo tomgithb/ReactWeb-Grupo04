@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 export const ContainerCards = styled.button`
     width: 100%;
-    height: 17%;
+    min-height: 17%;
+    height: fit-content;
     margin: 1.5rem 0rem;
+    padding: 0.25rem 0.5rem;
 
     display: flex;
     align-items: center;
@@ -13,7 +15,7 @@ export const ContainerCards = styled.button`
     border-radius: 0.5rem;
     background-color: var(--cor-caixa-texto);
    
-    transition-duration: 0.8s;
+    transition: background-color 0.8s;
     cursor: pointer;
 
       
@@ -32,16 +34,16 @@ export const ContainerCards = styled.button`
         text-align: left;
     }
 
-
     .imagem{
         margin: 0rem 0.5rem;
         width: 2rem;
         height: 2rem;
-
+        transition: filter .4s;
     }
-    .image:hover{
-        -webkit-filter: invert(0%);
-         filter: invert(0%);
+
+    .imagem:hover{
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
     }
 
 
