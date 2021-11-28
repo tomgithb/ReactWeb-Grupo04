@@ -19,26 +19,31 @@ function MinhaConta() {
       imagem: "./img/user.png",
       titulo: "Cadastro",
       descricao: "Alterar as informações pessoais e de endereço",
+      altImagem: "Ícone de usuário",
     },
     {
       imagem: "./img/compras.png",
       titulo: "Compras",
       descricao: "Visualizar pedidos realizados",
+      altImagem: "Ícone de compras com um carrinho de supermercado",
     },
     {
       imagem: "./img/vendas.png",
       titulo: "Vendas",
       descricao: "Visualizar vendas realizadas",
+      altImagem: "Ícone de vendas com uma uma mão simbolizando crescimento",
     },
     {
       imagem: "./img/cadastrarProduto.png",
       titulo: "Cadastrar produtos",
       descricao: "Cadastrar novos produtos para venda",
+      altImagem: "Ícone de cadastro de produtos com uma mão segurando um caixa aberta",
     },
     {
       imagem: "./img/cadastrarCategoria.png",
       titulo: "Cadastrar categorias",
       descricao: "Cadastrar novas categorias",
+      altImagem: "Ícone de cadastro de categorias com o símbolo de uma lista",
     },
   ];
 
@@ -52,7 +57,6 @@ function MinhaConta() {
   }, [escolha]);
 
   useEffect(() => {
-    console.log(credenciaisCarregadas);
     if (credenciaisCarregadas) {
       if (credenciais.login === null && credenciais.senha === null) {
         history.push("/login");

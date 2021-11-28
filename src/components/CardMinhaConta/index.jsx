@@ -4,9 +4,8 @@ function CardMinhaConta({informacoes, index, escolha, setEscolha}) {
   return (
     <ContainerCards className={escolha === (index+1) ? 'card-ativo' : ''} onClick={() => {
       setEscolha(index+1);
-      console.log(index+1);
       }}>
-      <img src={informacoes.imagem} className="imagem" alt="Ícone de usuário" />
+      <img src={informacoes.imagem} className="imagem" alt={informacoes.altImagem} />
 
       <div className="texto">
         <h3>{informacoes.titulo}</h3>

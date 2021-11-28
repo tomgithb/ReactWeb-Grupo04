@@ -85,7 +85,7 @@ header .bem-vindo-login a.minha-conta {
 	
 }
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 450px) {
 	header #logo-imagem {
 		height: 3rem;
 	}

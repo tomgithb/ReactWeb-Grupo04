@@ -65,9 +65,9 @@ body {
 }
 
 
-@media only screen and (max-width: 440px){ 
+@media only screen and (max-width: 450px){ 
     body {
-        --tamanho-header: 8rem;
+        --tamanho-header: 8.5rem;
     }
 }
 
