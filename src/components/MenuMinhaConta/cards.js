@@ -59,7 +59,6 @@ export const ContainerCards = styled.button`
 
         .imagem{
             width: 40%;
-            height: 40%;
         }
    }
 
@@ -69,6 +68,10 @@ export const ContainerCards = styled.button`
         height: 3rem;
         margin: 0.5rem;
    }
+
+        .imagem{
+            height: 40%;
+        }
 
 `
 
